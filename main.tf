@@ -34,24 +34,23 @@ resource "snowflake_role" "role" {
   name     = "TF_DEMO_SVC_ROLE"
 }
 
-resource "snowflake_grant" "database_grant" {
+resource "snowflake_database_grant" "database_grant" {
   database_name = "TF_DEMO"
   privilege     = "USAGE"
   roles         = ["TF_DEMO_SVC_ROLE"]
 }
 
-resource "snowflake_schema" "schema" {
-  database   = snowflake_database.db.name
-  name       = "TF_DEMO"
-  is_managed = false
-}
-
-
-resource "snowflake_grant" "schema_grant" {
+resource "snowflake_schema_grant" "schema_grant" {
   database_name = "TF_DEMO"
   schema_name   = "TF_DEMO"
   privilege     = "USAGE"
   roles         = ["TF_DEMO_SVC_ROLE"]
+}
+
+
+resource "snowflake_role_grant" "user_role_grant" {
+  user_name = "TF_DEMO"
+  role_name = "TF_DEMO_SVC_ROLE"
 }
 
 
