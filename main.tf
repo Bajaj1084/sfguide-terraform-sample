@@ -60,7 +60,7 @@ resource "snowflake_role_grants" "grants" {
   roles = []
 
   users = [
-    "sftraining",
+    "SFTRAINING",
   ]
 }
 
