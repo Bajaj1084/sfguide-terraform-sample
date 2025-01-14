@@ -1,8 +1,16 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = "~> 0.87"
+      source  = "chanzuckerberg/snowflake"
+      version = "0.25.17"
+    }
+  }
+
+  backend "remote" {
+    organization = "sfguide-terraform-sample"
+
+    workspaces {
+      name = "gh-actions-demo"
     }
   }
 }
