@@ -48,7 +48,7 @@ resource "snowflake_schema_grant" "schema_grant" {
 }
 
 
-resource "snowflake_role_grant" "user_role_grant" {
+resource "snowflake_role_grants" "user_role_grant" {
   user_name = "TF_DEMO"
   role_name = "TF_DEMO_SVC_ROLE"
 }
