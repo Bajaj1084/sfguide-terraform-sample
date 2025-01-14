@@ -48,9 +48,15 @@ resource "snowflake_schema_grant" "schema_grant" {
 }
 
 
-resource "snowflake_role_grants" "user_role_grant" {
-  user_name = "TF_DEMO"
-  role_name = "TF_DEMO_SVC_ROLE"
+resource "snowflake_role_grants" "grants" {
+  role_name = "${snowflake_role.role.name}"
+
+  roles = []
+
+  users = [
+    "tf-snow",
+  ]
 }
+
 
 
