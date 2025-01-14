@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "remote" {
-    organization = "sfguide-terraform-sample"
+    organization = "sfguide_terraform_sample"
 
     workspaces {
       name = "gh-actions-demo"
